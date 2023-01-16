@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tribute to Sidhu Moose Wala</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alice&family=Kalam&display=swap" rel="stylesheet">
+	<style>
+		header {
+			display: flex;
+		}
+
+		header h3 {
+			font-family: 'Alice', serif;
+			font-size: 42px;
+			text-decoration: underline;
+			text-decoration-color: #06bdcf;
+			color: #6cd8ec;
+		}
+
+		body {
+			margin: 0;
+			font-family: 'Kalam', cursive;
+			padding: 0;
+			background: #151515;
+			color: #f3f3f3;
+		}
+
+		.about {
+			font-size: 23px;
+			padding: 0 149px 3px 18px;
+			text-align: justify;
+
+		}
+
+		h2 {
+			font-family: 'Alice', serif;
+		}
+
+		header img {
+			width: 434px;
+			box-shadow: 5px 5px 11px white;
+			padding: 0;
+			margin: 18px 32px;
+			/* border: solid #cb2e33; */
+			border-radius: 18px;
+		}
+
+		#intro {
+			background: #107082;
+			font-size: 27px;
+			color: #e2ebec;
+			padding: 6px 74px 41px 88px;
+			text-align: justify;
+		}
+
+		article h3 {
+			font-family: 'Alice', serif;
+			font-size: 39px;
+			padding: 0;
+			margin: 25px 0 -15px 0;
+		}
+
+		article {
+			border-bottom: 25px solid #d6b846;
+			padding: 28px 15px;
+		}
+
+		article ul {
+			font-size: 25px;
+			list-style: square;
+			accent-color: black;
+			list-style-type: square;
+			color: #d7d7d7;
+			letter-spacing: 1px;
+		}
+
+		.about2 {
+
+			padding: 0px 16px 0 15px;
+			text-align: justify;
+			font-size: 22px;
+			letter-spacing: 2px;
+		}
+
+		.article2 {
+			display: flex;
+			align-items: center;
+			text-align: justify;
+			flex-direction: row-reverse;
+		}
+
+		.article2 img {
+			width: 266px;
+			padding: 0 0 0 16px;
+
+		}
+
+		a {
+			color: #d6b846;
+		}
+
+		#songs {
+			display: flex;
+			flex-flow: row;
+			width: 100%;
+			overflow-y: scroll;
+			height: 400px;
+			align-items: center;
+			scroll-snap-type: x mandatory;
+			scroll-padding-left: 219px;
+		}
+
+		#songs::-webkit-scrollbar {
+			display: none;
+		}
+
+		iframe {
+			scroll-snap-align: start;
+			width: 549px;
+			margin: 15px;
+			height: 295px;
+		}
+
+		.playlist {
+			display: flex;
+			flex-flow: column;
+			margin-bottom: 150px;
+			align-items: center;
+		}
+
+
+		/* 		Responsive design CSS */
+
+		@media(width<=500px) {
+			body {
+				scroll-behavior: smooth;
+
+				font-family: 'Kalam', cursive;
+			}
+
+			header {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+			}
+
+			.about {
+				font-size: 17px;
+				padding: 0 25px 0px 25px;
+				text-align: center;
+				text-align: justify;
+			}
+
+			header h3 {
+
+				font-family: 'Alice', serif;
+				text-align: center;
+				font-size: 23px;
+			}
+
+			header img {
+				width: 250px;
+				padding: 0;
+				margin: 18px 32px;
+			}
+
+			#intro {
+				background: #107082;
+				font-size: 16px;
+				color: #e2ebec;
+				padding: 6px 28px 41px 28px;
+				text-align: justify;
+			}
+
+			#intro h2 {
+				font-family: 'Alice', serif;
+				font-size: 28px;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+			}
+
+			article {
+				border-bottom: 25px solid #d6b846;
+				padding: 28px 15px;
+			}
+
+			article h3 {
+				font-family: 'Alice', serif;
+				font-size: 31px;
+				padding: 0;
+				margin: 4px 0 -12px 0;
+			}
+
+			article ul {
+				font-size: 19px;
+				list-style: square;
+				accent-color: black;
+				list-style-type: square;
+				color: #d7d7d7;
+				letter-spacing: 1px;
+			}
+
+			article ul li {
+				margin-top: 15px;
+			}
+
+			.article2 {
+				display: flex;
+				align-items: center;
+				text-align: justify;
+				flex-direction: column-reverse;
+			}
+
+			.about2 {
+				padding: 24px 16px 0 15px;
+				text-align: justify;
+				font-size: 20px;
+				letter-spacing: 2px;
+			}
+
+			.article2 img {
+				width: 250px;
+				padding: 0 0 0 16px;
+			}
+
+			.playlist h1 {
+				font-family: 'Alice', serif;
+				font-size: 25px;
+				text-align: center;
+			}
+
+			#songs {
+				width: 100%;
+				height: 302px;
+				flex-flow: column;
+				scroll-snap-type: y mandatory;
+				/* 				scroll-padding-top: 55px; */
+
+			}
+
+			iframe {
+				width: auto;
+				height: auto;
+
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header class="cont">
+		<div class="about">
+			<h3>A Respectfull salute to SIDHU MOOSE WALA</h3>
+			He is the only one who alone has the potential to <strong>Revolutionaries </strong> the <strong>Punjabi
+				Music Industry</strong> and he did it. The every single word of his song hits our Heart💖 and strikes a
+			deep emotional chord with listeners, leaving them feeling <strong> UPLIFTED, EXCITED, and
+				ENERGIZED.</strong>
+		</div>
+		<img src="https://static.toiimg.com/photo/91941602.cms" alt="">
+
+	</header>
+
+	<section id="intro">
+		<h2 style="text-align: center;">ABOUT <br> Sidhu Moose Wala</h2>
+		<strong>Shubhdeep Singh Sidhu (11 June 1993 – 29 May 2022)</strong> better known by his stage name Sidhu Moose Wala is a Punjabi
+		Singer, Lyricist, Rapper, and Actor associated with Punjabi Music Industry. He is
+		best known for his songs like So High, Same Beef, Tochan, Bambiha Bole, 295, Just Listen, and more. His some of
+		songs have top charted on some International Billboards like <strong>the Canadian Albums chart, UK Singles Chart, UK
+			Asian chart, Global YouTube music chart, Canadian Hot 100, and New Zealand Hot charts.</strong>
+	</section>
+	<article id="about">
+		<h3>Early Life </h3>
+		<ul>
+			<li>Sidhu Moosewala real name Shubhdeep Singh Sidhu and was born on 11 June 1993.</li>
+			<li> He is a famous Punjabi singer from Village Moosa, Mansa, District Bathinda, Punjab.</li>
+			<li>He was born in a Sikh family, to father Balkaur Singh and mother Charan Kaur.</li>
+			<li>He did his schooling at Vidya Bharti School, Mansa, Punjab, and did his electrical engineering at Guru
+				Nanak Dev Engineering College, Ludhiana.</li>
+			<li>After graduation, he moved to Canada for further studies and studied at Sheridan College and Humber
+				College.</li>
+		</ul>
+	</article>
+
+	<article class="article2">
+		<div class="about2">
+
+			<strong>Sidhu Moosewala Wala</strong> got his breakthrough with the song <a
+				href="https://www.youtube.com/watch?v=YIrT3h-duMg">So High</a> in 2017,
+			collaboration with Byg Byrd. Also, he won the Best Lyricist award for the song at <strong>Brit Asia Music
+				Awards.</strong> <br><br>
+			<em> His first song was Licence sung by Ninja. </em>
+			He continued his success with singles like <a href="https://www.youtube.com/watch?v=y-PQiShdTKA">Tochan</a>, <a
+				href="https://www.youtube.com/watch?v=xHmq1JpoGqc">Selfmade</a>, <a
+				href="https://www.youtube.com/watch?v=p3VF6acYG7I">Famous</a>
+			and <a href="https://www.youtube.com/watch?v=eQx2b1dFRMs">Warning Shots.</a> In August 2018 he launched his first
+			film soundtrack song, <a href="https://www.youtube.com/watch?v=Eh2IMZ5Na7o">Dollar</a>, for the film Dakuaan Da
+			Munda.
+			<br><br>
+			In October 2018, Sidhu released his debut album <a href="https://www.youtube.com/watch?v=SlLhbuASN7c">PBX 1</a> of
+			the Pop genre with a touch of hip-hop.
+			The album was charted on the <strong> Canadian Albums Chart by Billboard.</strong>
+			<br> <br>
+			In Jan 2020, Sidhu released a new pop song name <a href="https://www.youtube.com/watch?v=hBlO1i_WTiY">Old
+				Skool</a> with Prem Dhillon and Nseeb Rapper, it
+			was a huge success.
+		</div>
+		<img src="https://pbs.twimg.com/media/FSacughVcAA3Ora?format=jpg&name=large" alt="">
+	</article>
+
+	<div class="playlist">
+		<h1>PLAYLIST OF THE LEGEND SIDHU MOOSEWALA</h1>
+		<div id="songs" class="songs">
+
+		</div>
+	</div>
+</body>
+<script>
+	let songsLink = {
+		"295": "https://www.youtube.com/embed/n_FCrCQ6-bA",
+		legend: "https://www.youtube.com/embed/YZAFd9o3RYQ",
+		goat: "https://www.youtube.com/embed/M8vDwlHigJA",
+		gShit: "https://www.youtube.com/embed/YPPEZiDF4Xw",
+		invincible: "https://www.youtube.com/embed/n8M1PvCyKwA",
+		theseDays: "https://www.youtube.com/embed/gnpw_Z-mBlY",
+		borwnShortie: "https://www.youtube.com/embed/AKg-PRzEuqo",
+		us: "https://www.youtube.com/embed/c8UUWkUJu6E",
+		burberry: "https://www.youtube.com/embed/I1Llz8075MA",
+		unfuckwithable: "https://www.youtube.com/embed/tZt3Tp0MFZk",
+		levels: "https://www.youtube.com/embed/tpFljbJxZiw",
+		theLastRide: "https://www.youtube.com/embed/6xoB4ZiKKn0",
+		calabose: "https://www.youtube.com/embed/Xf-N1joH6h4",
+		oldSkool: "https://www.youtube.com/embed/hBlO1i_WTiY",
+		baapu: "https://www.youtube.com/embed/Bp8YoQsz6jc",
+		dearMAMA: "https://www.youtube.com/embed/4wub_PF4Oaw",
+		sanju: "https://www.youtube.com/embed/2cLTT_bEqTg"
+	}
+
+	let allSongs = Object.keys(songsLink);
+	for (let i of allSongs) {
+		document.getElementById("songs").innerHTML += `
+ <div id="${i}">
+ <iframe src="${songsLink[i]}"" title="YouTube video player"
+				frameborder="0" loading="lazy"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen>
+	</iframe>
+	</div>	
+ `
+	}
+
+</script>
+
+</html>
