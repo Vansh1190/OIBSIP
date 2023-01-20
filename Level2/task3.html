@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ToDo App</title>
+	<style>
+    html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+      display: flex;
+    flex-flow: column;
+  align-items: center;
+  padding: 0;
+	background: #8659b4;
+	    color: blanchedalmond;
+
+}
+}
+
+p{
+  width: 100%;
+  margin-top: 3px;
+  font-size: larger;
+}
+h5{
+  font-weight:normal;
+  font-size: large;
+  margin: 15px 0 5px 0 ;
+  padding: 0;
+}
+input{
+    width: 95%;
+		padding: 8px;
+	margin-top: 5px;
+	background: transparent;
+	color: #c5dfff;
+	outline: none;
+ 	border: 2px solid #878787;
+	border-radius: 6px;
+}
+
+input:focus{
+		transition-duration: 0.4s;
+	border-bottom: 2px solid #878787;
+	border-radius: 15px;
+}
+label{
+	margin-bottom: 5px;
+}
+.Title{
+	
+	margin-top: 25px;
+	margin-bottom: 15px;
+	width:90%;
+
+}
+textarea{
+		margin-top: 5px;
+		padding: 8px;
+    width: 95%;
+    resize: none;
+    font-size: larger;
+	background: transparent;
+	color: #c5dfff;
+	outline: none;
+	border-radius: 6px;
+	border: 2px solid #878787;
+	
+}
+textarea:focus{
+		transition-duration:0.4s;
+	border-radius: 15px;
+}
+.Note{
+	width: 90%;
+}
+form{
+	
+	background:linear-gradient(35deg, ) ;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 15px;
+/* 	margin: 32px; */
+	width: 80%;
+	border-radius: 21px;
+    background: linear-gradient(200deg, #8659b4, #22182d);
+    box-shadow: -11px 8px 24px 6px #1b2e30;
+}
+
+button{
+  margin: 15px;
+  padding: 15px;
+  width:35%;
+	    background: transparent;
+    color: blanchedalmond;
+	border-radius: 10px;
+
+}
+button:hover{
+	border-radius: 15px;
+	transition-duration:0.3s;
+	box-shadow: 4px 4px 1px 0px #080809;
+    scale: 1.05;
+    border-style: dotted;
+}
+
+.note{
+  display: flex;
+}
+section{
+	text-align: center;
+	display: flex;
+	width: 60%;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+.NotesCont{
+	margin: 5px;
+	border-radius: 25px;
+	padding:0 25px;
+	object-fit:contain;
+	border: 2px solid black;
+	background: linear-gradient(180deg ,#8c5bc4,#573a75);
+	display: flex;
+	flex-flow: column;
+	transition-duration:0.5s ;
+  width: 100%;
+  justify-content: space-between;
+}
+.done{
+	width: 86px;
+}
+.NoteElement{
+	width: 70%;
+	text-align: start;
+}
+.NotesCont code{
+	margin-bottom: -33px;
+}
+.NotesCont button{
+	border-radius: 15px;
+}
+#mr {
+		margin-top: 170px;
+			position: relative;
+			top: 25px;
+			text-align: center;
+		}
+#mr a{
+	color: blanchedalmond;
+}
+  </style>
+</head>
+
+<body>
+	<nav class="Cont">
+		<h2>Your Personal Todo List</h2>
+	</nav>
+	<form>
+		<div class="Title">
+			<label for="name">Title</label> <br>
+			<input autocomplete="off" id="name" placeholder="Title" type="text">
+		</div>
+		<div class="Note">
+			<label for="notes">Note</label> <br>
+			<textarea id="notes" placeholder="Note" type="text" rows="10"></textarea>
+		</div>
+		<button id="button">Add</button>
+	</form>
+	<section class="ALLnotes" id="ALLnotes">
+		
+	</section>
+<code id="mr">
+<small>All Rights Reserved © <a href="https://mrnaveenwoodoworks.w3spaces.com/" > Vansh</a> </small>
+
+</code>
+
+
+
+
+
+
+	<script>
+    let section = document.getElementById("ALLnotes");
+let button = document.getElementById("button")
+let color = ["green", "yellow", "red", "blue"];
+let srNo = 1;
+let srNo2 = 1;
+let confirmDelete = false;
+
+
+let func = (e) => {
+
+	e.preventDefault();
+	srNo = localStorage.length;
+	let inp = document.getElementById("name").value
+	let note = document.getElementById("notes").value
+	let time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+	let d = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear() + " " + time;
+	console.log(d);
+	if (inp != "") {
+		section.innerHTML += `
+		<div id = ${srNo} class="NotesCont">
+	<div class="NoteElement">
+  <h2>
+  ${inp}
+	</h2>
+  <p>
+  ${note}
+  </p>
+ </div>
+	<br>
+ <div>
+  <button class="done" onclick = "delNote(${srNo})">Mark as done</button>
+ </div>
+	</div>
+`
+		localStorage.setItem(`note(${srNo})`, `${inp},${note},${d}`);
+		 document.getElementById("name").value = "" ;
+		 document.getElementById("notes").value = "" ;
+		inp= "";
+		srNo++;
+	
+	}
+	else {
+		alert("input cannot be empty")
+	}
+}
+
+let delNote = (d) => {
+	
+	console.log(d)
+	confirmDelete = true;
+		document.getElementById(`${d}`).style.transform = "scale(0.001)";
+	setTimeout(()=>{
+		document.getElementById(`${d}`).remove();
+	localStorage.removeItem(`note(${d})`)
+	},500)
+	console.log(`note${d}`)
+	// localStorage.removeItem(localStorage.key(d - 1));
+}
+
+
+
+
+
+
+button.addEventListener("click", func);
+
+
+let showNotes = (a, c) => {
+
+	section.innerHTML += `
+		<div id = ${srNo} class="NotesCont">
+	<code>${c[2]}</code> <br>
+	<div class="NoteElement">
+  <h2>
+  ${c[0]}
+	</h2>
+  <p>
+  ${c[1]}
+  </p>
+ </div>
+ <div>
+  <button class="done" onclick = "delNote(${srNo})">Mark as done</button>
+ </div>
+	</div>
+`
+	srNo++;
+	if (confirmDelete) {
+		localStorage.removeItem(a);
+		srNo--
+		confirmDelete = false;
+	}
+
+}
+let f = () => {
+	srNo = 0;
+	console.log(srNo)
+	for (let i = 0; i < localStorage.length+1; i++) {
+		let a = localStorage.key(i);
+		let b = localStorage.getItem(`note(${i})`);
+		console.log(i);
+		if(b){
+			
+		let c = b.split(",");
+		console.log(c);
+		showNotes(a, c);
+		}
+	}
+}
+document.onload = f();
+
+
+  </script>
+
+	
+</body>
+
+</html>
